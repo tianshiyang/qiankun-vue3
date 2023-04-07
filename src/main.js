@@ -46,8 +46,8 @@ export async function mount(props) {
 export async function unmount() {
   console.log("销毁组件")
   console.log(instance)
-  // instance.$destroy()
-  // instance.$el.innerHTML = ''
+  instance.$destroy?.()
+  // instance._container.innerHTML = ''
   instance = null
   router = null
 }
