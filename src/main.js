@@ -15,9 +15,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 let router = null
 let instance = null
 
-function render({ container, actions: parentActions } = {}) {
+function render({ container, actions: parentActions, router: parentRouter } = {}) {
   // 缓存主应用传过来的actions
-  actions.setActions(parentActions)
+  console.log(parentRouter)
+  actions.setActions(parentActions, parentRouter)
 
   router = createRouter({
     routes,

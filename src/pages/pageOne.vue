@@ -22,6 +22,7 @@ actions.onGlobalStateChange(parentState => {
 })
 
 const goMainApp = () => {
+  actions.parentRouter.go(-1)
 }
 
 

@@ -14,8 +14,9 @@ class Actions {
   /**
    * 设置 actions
    */
-  setActions(actions) {
+  setActions(actions, parentRouter) {
     this.actions = actions
+    this.parentRouter = parentRouter
   }
 
   /**
@@ -34,6 +35,10 @@ class Actions {
    */
   setGlobalState() {
       return this.actions.setGlobalState(...arguments);
+  }
+
+  parentRouter() {
+    return this.parentRouter
   }
 }
 
