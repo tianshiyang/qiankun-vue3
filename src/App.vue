@@ -1,5 +1,9 @@
 <template>
-  <router-view></router-view>
+  <router-view #default="{ Component }">
+    <keep-alive :include="['pageOne']">
+      <component :is="Component"></component>
+    </keep-alive>
+  </router-view>
 </template>
 
 <script setup>

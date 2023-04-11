@@ -17,7 +17,6 @@ let instance = null
 
 function render({ container, actions: parentActions, router: parentRouter } = {}) {
   // 缓存主应用传过来的actions
-  console.log(parentRouter)
   actions.setActions(parentActions, parentRouter)
 
   router = createRouter({
@@ -47,7 +46,6 @@ export async function mount(props) {
 
 // 导出每次销毁时的钩子函数
 export async function unmount() {
-  console.log("销毁组件")
   instance.$destroy?.()
   // instance._container.innerHTML = ''
   instance = null
