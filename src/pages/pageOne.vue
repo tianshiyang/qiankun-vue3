@@ -1,6 +1,7 @@
 <template>
   <h1>vue3 子应用</h1>
-  <h2>主应用中的信息 -> 姓名: {{ state.name }} count：{{ state.count }}</h2>
+  <h2 class="parent">主应用中的信息 -> 姓名: {{ state.name }} count：{{ state.count }}</h2>
+  <h2>Router 中的信息 姓名{{ route.query.name }}，年龄 {{ route.query.age }}</h2>
 
   <el-card>
     <el-form :model="form" inline label-width="120px">
@@ -17,18 +18,18 @@
   </el-card>
 
   <el-button-group>
-    <el-button type="primary" @click="goMainApp">回到主系统</el-button>
-    <el-button type="info" @click="goPageTwo">vue3 页面2</el-button>
+    <el-button type="success" @click="goMainApp">主系统</el-button>
+    <el-button type="info" @click="goVue2">vue2 子应用</el-button>
     <el-button type="danger" @click="commitGlobalVuexCount">更改主应用vuex数据</el-button>
   </el-button-group>
 </template>
 
 <script setup name="pageOne">
 import actions from "@/qiankun/actions.js"
-import { useRouter } from "vue-router"
+import { useRoute } from "vue-router"
 import { reactive, ref } from "vue"
 
-const router = useRouter()
+const route = useRoute()
 
 const form = reactive({
   name: "",
@@ -46,7 +47,9 @@ actions.onGlobalStateChange(parentState => {
 })
 
 const goMainApp = () => {
-  actions.parentRouter.go(-1)
+  actions.parentRouter.push({
+    path: "qiankun-home"
+  })
 }
 
 
@@ -57,9 +60,15 @@ const commitGlobalVuexCount = () => {
   })
 }
 
-const goPageTwo = () => {
-  router.push({
-    path: "pageTwo"
+const goVue2 = () => {
+  actions.parentRouter.push({
+    path: "/vue2/pageOne"
   })
 }
 </script>
+
+<style scoped>
+.parent {
+  color: red
+}
+</style>
