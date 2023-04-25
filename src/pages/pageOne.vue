@@ -37,14 +37,11 @@ const form = reactive({
 })
 
 const state = ref()
+
 actions.onGlobalStateChange((parentState) => {
   state.value = parentState
 }, true)
 
-
-actions.onGlobalStateChange(parentState => {
-  state.value = parentState
-})
 
 const goMainApp = () => {
   actions.parentRouter.push({
