@@ -18,14 +18,12 @@ let instance = null
 function render({ 
   container,
   onGlobalStateChange,
-  getGlobalState,
   setGlobalState,
   offGlobalStateChange,
   router: parentRouter } = {}) {
-    
+
   // 缓存主应用传过来的actions
   const parentActions = {
-    getGlobalState,
     onGlobalStateChange,
     setGlobalState,
     offGlobalStateChange

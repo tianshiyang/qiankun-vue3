@@ -37,9 +37,9 @@ const form = reactive({
 })
 
 const state = ref()
-actions.getGlobalState((parentState) => {
+actions.onGlobalStateChange((parentState) => {
   state.value = parentState
-})
+}, true)
 
 
 actions.onGlobalStateChange(parentState => {

@@ -8,7 +8,6 @@ class Actions {
   actions = {
       onGlobalStateChange: emptyAction,
       setGlobalState: emptyAction,
-      getGlobalState: emptyAction,
       offGlobalStateChange: emptyAction
   };
 
@@ -26,11 +25,6 @@ class Actions {
   onGlobalStateChange() {
       return this.actions.onGlobalStateChange(...arguments);
   }
-
-  getGlobalState() {
-    return this.actions.getGlobalState(...arguments)
-  }
-
   /**
    * 映射
    */
