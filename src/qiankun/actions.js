@@ -8,7 +8,8 @@ class Actions {
   actions = {
       onGlobalStateChange: emptyAction,
       setGlobalState: emptyAction,
-      getGlobalState: emptyAction
+      getGlobalState: emptyAction,
+      offGlobalStateChange: emptyAction
   };
 
   /**
@@ -37,10 +38,15 @@ class Actions {
       return this.actions.setGlobalState(...arguments);
   }
 
+  offGlobalStateChange() {
+    return this.actions.offGlobalStateChange(...arguments)
+  }
+
   parentRouter() {
     return this.parentRouter
   }
 }
 
 const actions = new Actions();
+
 export default actions;

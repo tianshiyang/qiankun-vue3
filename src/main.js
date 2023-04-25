@@ -15,8 +15,21 @@ import { createRouter, createWebHistory } from 'vue-router'
 let router = null
 let instance = null
 
-function render({ container, actions: parentActions, router: parentRouter } = {}) {
+function render({ 
+  container,
+  onGlobalStateChange,
+  getGlobalState,
+  setGlobalState,
+  offGlobalStateChange,
+  router: parentRouter } = {}) {
+    
   // 缓存主应用传过来的actions
+  const parentActions = {
+    getGlobalState,
+    onGlobalStateChange,
+    setGlobalState,
+    offGlobalStateChange
+  }
   actions.setActions(parentActions, parentRouter)
 
   router = createRouter({
