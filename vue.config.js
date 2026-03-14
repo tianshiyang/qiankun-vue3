@@ -1,7 +1,7 @@
 const { defineConfig } = require('@vue/cli-service')
 const { name } = require('./package.json');
 module.exports = defineConfig({
-  publicPath: process.env.NODE_ENV === 'production' ? "/vue3-app/" : "/",
+  publicPath: process.env.NODE_ENV === 'production' ? "/vue3/" : "/",
   transpileDependencies: true,
   devServer: {
     port: 5005,

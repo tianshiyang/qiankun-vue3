@@ -32,7 +32,9 @@ function render({
 
   router = createRouter({
     routes,
-    history: createWebHistory(window.__POWERED_BY_QIANKUN__ ? '/vue3' : '/'),
+    history: createWebHistory(
+      window.__POWERED_BY_QIANKUN__ ? "/qiankun-vue3" : "/",
+    ),
   })
     
   instance = createApp(App).use(router).use(store).use(ElementPlus, {

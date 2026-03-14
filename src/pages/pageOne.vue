@@ -39,6 +39,7 @@ const form = reactive({
 const state = ref()
 
 actions.onGlobalStateChange((parentState) => {
+  console.log('变更了')
   state.value = parentState
 }, true)
 
@@ -53,7 +54,8 @@ const goMainApp = () => {
 const commitGlobalVuexCount = () => {
   actions.setGlobalState({
     name: "张三",
-    count: state.value.count + 1
+    count: state.value.count + 1,
+    age: 1000
   })
 }
 
